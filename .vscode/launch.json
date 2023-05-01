@@ -1,0 +1,18 @@
+// create launch.json for node debugging
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "command": "npm start",
+            "name": "Run npm start",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+        {
+            "command": "npm run debug",
+            "name": "Run npm start with debug",
+            "request": "launch",
+            "type": "node-terminal"
+        },
+    ]
+}
