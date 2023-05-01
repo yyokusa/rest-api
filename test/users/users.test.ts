@@ -1,4 +1,4 @@
-import app from '../../app';
+import app from '../..';
 import supertest from 'supertest';
 import { expect } from 'chai';
 import shortid from 'shortid';

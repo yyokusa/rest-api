@@ -1,16 +1,17 @@
 {
-    "version": 2,
-    "builds": [
-        {
-            "src": "dist/app.js",
-            "use": "@vercel/node",
-            "config": { "includeFiles": ["dist/**"] }
-        }
-    ],
-    "routes": [
-        {
-            "src": "/(.*)",
-            "dest": "dist/app.js"
-        }
-    ]
+  "name": "vercel-typescript-express-api",
+  "version": 2,
+  "public": true,
+  "builds": [
+    {
+      "src": "./index.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "./index.js"
+    }
+  ]
 }
