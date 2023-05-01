@@ -1,7 +1,7 @@
 {
-  "name": "backend-foodimium",
+  "name": "backend",
   "version": "1.0.0",
-  "description": "backend for the foodimium application",
+  "description": "backend for the  application",
   "main": "dist/app.js",
   "scripts": {
     "start": "./node_modules/typescript/bin/tsc && node --unhandled-rejections=strict ./dist/app.js",
@@ -11,16 +11,8 @@
     "test-debug": "export DEBUG=* && npm test",
     "test-debug2": "DEBUG=mquery npm run test"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/foodimium/backend-foodimium.git"
-  },
   "author": "yyokusa",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/foodimium/backend-foodimium/issues"
-  },
-  "homepage": "https://github.com/foodimium/backend-foodimium#readme",
   "dependencies": {
     "argon2": "^0.30.3",
     "axios": "^1.3.6",
