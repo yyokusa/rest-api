@@ -21,7 +21,7 @@ class PostgresService {
         // try to connect to the database
         const sequelize = new Sequelize({
                 dialect: 'sqlite',
-                storage: path.join(__dirname, '../../..', 'data/database_test.sqlite'),
+                storage: path.join(__dirname, 'data/database_test.sqlite'),
                 logging: msg => log(msg),
                 retry: {
                     max: 3,

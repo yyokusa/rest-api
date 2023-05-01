@@ -1,5 +1,4 @@
 data
-.env
 # Created by https://www.toptal.com/developers/gitignore/api/macos,node,visualstudiocode
 # Edit at https://www.toptal.com/developers/gitignore?templates=macos,node,visualstudiocode
 
@@ -112,7 +111,7 @@ web_modules/
 .yarn-integrity
 
 # dotenv environment variable files
-.env
+# .env
 .env.development.local
 .env.test.local
 .env.production.local

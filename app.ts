@@ -1,7 +1,7 @@
 import dotenv from 'dotenv';
 // must be at the very top of the file
 // to ensure that the environment variables are set
-const dotenvResult = dotenv.config();
+const dotenvResult = dotenv.config({path: process.cwd() + '/.env'});;
 if (dotenvResult.error) {
     throw dotenvResult.error;
 }

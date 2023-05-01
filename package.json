@@ -9,8 +9,8 @@
     "test": "mocha -r ts-node/register 'test/**/*.test.ts' --unhandled-rejections=strict --bail",
     "test-debug": "export DEBUG=* && npm test",
     "test-debug2": "DEBUG=mquery npm run test",
-    "start": "nodemon app.ts",
-    "build": "rimraf dist && tsc",
+    "start": "node --unhandled-rejections=strict ./dist/app.js",
+    "build": "rm -rf node_modules && npm i && npm install sqlite3 && rimraf dist && ./node_modules/typescript/bin/tsc && cp ./node_modules/sqlite3/lib/binding/napi-v6-darwin-unknown-arm64/node_sqlite3.node ./dist/ && cp .env ./dist/.env && npm rebuild",
     "ts.check": "tsc --project tsconfig.json",
     "add-build": "git add dist"
   },
