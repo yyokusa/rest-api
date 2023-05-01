@@ -1,0 +1,226 @@
+{
+	"info": {
+		"_postman_id": "6d7dd1ec-d795-4f3f-bb00-816dd500e782",
+		"name": "gamegos-case-docker",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18548949"
+	},
+	"item": [
+		{
+			"name": "signup",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"REST_API_EXAMPLE_ID\", jsonData.id);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\":\"secr3tPass!23\",\n    \"email\":\"yasin.yokus5@gmail.com\", \"level\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/users",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var jsonData = JSON.parse(responseBody);",
+							"postman.setEnvironmentVariable(\"REST_API_EXAMPLE_ACCESS\", jsonData.accessToken);",
+							"postman.setEnvironmentVariable(\"REST_API_EXAMPLE_REFRESH\", jsonData.refreshToken);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\":\"secr3tPass!23\",\n    \"email\":\"yasin.yokus5@gmail.com\", \"level\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/auth",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"auth"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "single-user",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{REST_API_EXAMPLE_ACCESS}}",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "{{uri}}/users/{{REST_API_EXAMPLE_ID}}",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"users",
+						"{{REST_API_EXAMPLE_ID}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all-events",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{REST_API_EXAMPLE_ACCESS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"password\":\"secr3tPass!23\",\n    \"email\":\"yasin.yokus4@toptal.com\", \"level\":1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/events",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create-event",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{REST_API_EXAMPLE_ACCESS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventId\":\"sharp-glasses-x\",\n    \"time\":\"1987-11-19\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/events",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"events"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "eventsAndUser",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "{{REST_API_EXAMPLE_ACCESS}}",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"eventId\": \"sharp-glasses-x\",\n    \"userId\": \"{{REST_API_EXAMPLE_ID}}\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{uri}}/eventsAndUser/sharp-glasses-x",
+					"host": [
+						"{{uri}}"
+					],
+					"path": [
+						"eventsAndUser",
+						"sharp-glasses-x"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
